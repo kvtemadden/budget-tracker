@@ -9,7 +9,7 @@ Section | Description
 [Licence](#licence) | Licence for the source code
 
 ## Screenshot
-![Screenshot of working Budget Tracker](assets/imgs/budget-tracker.PNG)
+![Screenshot of working Budget Tracker](assets/budget-tracker.PNG)
 
 You can access the Budget Tracker [here](https://kvtemadden-budget-tracker.herokuapp.com/)
 
