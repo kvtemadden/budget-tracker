@@ -1,7 +1,6 @@
 const FILES_TO_CACHE = [
     "/",
     "/js/indexedDB.js",
-    "/index.html",
     "/index.js",
     "/dist/bundle.js",
     "/icons/icon-192x192.png",
@@ -10,14 +9,14 @@ const FILES_TO_CACHE = [
   
   
   const STATIC_CACHE = "static-cache-v1";
-  const RUNTIME_CACHE = "runtime-cache";
+  const RUNTIME_CACHE = "data-cache";
   
   self.addEventListener("install", function(event) {
     // Perform install steps
     event.waitUntil(
-      caches.open(CACHE_NAME).then(function(cache) {
+      caches.open(STATIC_CACHE).then(function(cache) {
         console.log("Opened cache");
-        return cache.addAll(urlsToCache);
+        return cache.addAll(FILES_TO_CACHE);
       })
     );
   });
@@ -26,7 +25,7 @@ const FILES_TO_CACHE = [
     // cache all get requests to /api routes
     if (event.request.url.includes("/api/")) {
       event.respondWith(
-        caches.open(DATA_CACHE_NAME).then(cache => {
+        caches.open(RUNTIME_CACHE).then(cache => {
           return fetch(event.request)
             .then(response => {
               // If the response was good, clone it and store it in the cache.
