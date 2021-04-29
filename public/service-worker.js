@@ -1,5 +1,6 @@
 const FILES_TO_CACHE = [
     "/",
+    "/styles.css",
     "/js/indexedDB.js",
     "/index.js",
     "/icons/icon-192x192.png",
